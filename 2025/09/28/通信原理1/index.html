@@ -413,13 +413,15 @@
 <li><p>平均信息量$H$:信源中每个符号所含的信息量的统计平均值<br>$H&#x3D;-\sum_{i&#x3D;1}^{M}P_i\log_2P_i$</p>
 <ul>
 <li>$P_i$为符号$i$出现的概率</li>
-<li>$M$为独立的M个信源符号<blockquote>
+<li>$M$为独立的M个信源符号</li>
+</ul>
+<blockquote>
 <p>$H$与热力学中的熵形式一样，称作<strong>信息熵</strong></p>
 <ul>
 <li>当$P_i&#x3D;1&#x2F;M$(即概率均相等)时，$H$最大，$H_{max}&#x3D;\log_2M$</li>
 </ul>
 </blockquote>
-</li>
+<ul>
 <li>总信息量$I_总$：<ul>
 <li>表达式：$I_{总}&#x3D;M*H$</li>
 <li>$M$为符号总数</li>
@@ -479,7 +481,7 @@
 </ul>
 </li>
 <li>误信率(误比特率)$P_b$：<br>$P_b&#x3D;\frac{I_e}{I}$<blockquote>
-<p>注：在二进制下，二者相等，在M(&gt;&#x3D;2)的情况下，误码率会大于等于误信律<br>\begin{proof}<br>假设每个码元有M个可能符号，误码率$P_e$是码元错误的概率，误信率$P_b$是比特错误的概率。在M进制中，一个码元对应$\log_2 M$比特，所以$P_b \leq P_e \cdot \log_2 M$，但具体关系取决于调制方式。通常，$P_e \geq P_b$。<br>\end{proof}</p>
+<p>注：在二进制下，二者相等，在M(&gt;&#x3D;2)的情况下，误码率会大于等于误信律<br>证明：假设每个码元有M个可能符号，误码率 $P_e$ 是码元错误的概率，误信率 $P_b$ 是比特错误的概率。在M进制中，一个码元对应 $\log_2 M$ 比特，所以 $P_b \leq P_e \cdot \log_2 M$，但具体关系取决于调制方式。通常，$P_e \geq P_b$。</p>
 </blockquote>
 </li>
 </ul>
