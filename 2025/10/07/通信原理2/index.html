@@ -193,7 +193,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="color: #03a9f4">
+                <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="color: #00bcd4">
                     通信原理
                 </a>
             </span>
@@ -331,12 +331,68 @@
 </ul>
 <h3 id="能量信号的频谱密度"><a href="#能量信号的频谱密度" class="headerlink" title="能量信号的频谱密度"></a>能量信号的频谱密度</h3><h4 id="频谱密度的定义"><a href="#频谱密度的定义" class="headerlink" title="频谱密度的定义"></a>频谱密度的定义</h4><ul>
 <li>能量信号s(t)的傅里叶变换： $S(f)&#x3D;\displaystyle \int_{-\infty}^{\infty} s(t) e^{-j 2\pi f t}dt$</li>
-<li>S(f)逆傅里叶变换生成原信号： $s(t)&#x3D;\displaystyle \int_{- \infty}^{\infty}S(f) e^{j 2\pi ft;<br>}$</li>
+<li>S(f)逆傅里叶变换生成原信号：$s(t)&#x3D;\displaystyle \int_{- \infty}^{\infty}S(f) e^{j 2\pi ft}df$</li>
 </ul>
 <h4 id="频谱密度-S-f-与-C-n-的区别"><a href="#频谱密度-S-f-与-C-n-的区别" class="headerlink" title="频谱密度$S(f)$与$C_n$的区别"></a>频谱密度$S(f)$与$C_n$的区别</h4><h4 id="实能量信号的-S-f-与实功率信号-C-n-的共同特性"><a href="#实能量信号的-S-f-与实功率信号-C-n-的共同特性" class="headerlink" title="实能量信号的$S(f)$与实功率信号$C_n$的共同特性"></a>实能量信号的$S(f)$与实功率信号$C_n$的共同特性</h4><ul>
 <li>如上文讲到，负频谱与正频谱的模偶对称，相位奇堆对称，即复数共轭。<br>因为：<br>  $\displaystyle \int_{-\infty}^{\infty} s(t) e^{-j 2\pi f t}dt&#x3D;\overline{[\int_{-\infty}^{\infty} s(t) e^{+ j 2\pi f t}dt]}, S(f)&#x3D;\overline{S(-f)}$</li>
 </ul>
-<h3 id="能量信号的能量谱密度"><a href="#能量信号的能量谱密度" class="headerlink" title="能量信号的能量谱密度"></a>能量信号的能量谱密度</h3><h3 id="功率信号的功率谱密度"><a href="#功率信号的功率谱密度" class="headerlink" title="功率信号的功率谱密度"></a>功率信号的功率谱密度</h3><h2 id="确知信号的时域特征"><a href="#确知信号的时域特征" class="headerlink" title="确知信号的时域特征"></a>确知信号的时域特征</h2>
+<h3 id="能量信号的能量谱密度"><a href="#能量信号的能量谱密度" class="headerlink" title="能量信号的能量谱密度"></a>能量信号的能量谱密度</h3><h4 id="能量谱密度的定义"><a href="#能量谱密度的定义" class="headerlink" title="能量谱密度的定义"></a>能量谱密度的定义</h4><ul>
+<li>能量信号s(t)的能量谱密度定义为： $G(f) &#x3D; |S(f)|^2$</li>
+<li>$s(t)&lt;&#x3D;&gt;S(f)$</li>
+<li>Parseval定理： $E &#x3D; \displaystyle \int_{-\infty}^{\infty} |s(t)|^2 dt &#x3D; \int_{-\infty}^{\infty} |S(f)|^2 df &#x3D; \int_{-\infty}^{\infty} G(f) df&#x3D;2\int_{0}^{\infty} G(f) df$<blockquote>
+<p>物理意义： 能量守恒</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="功率信号的功率谱密度"><a href="#功率信号的功率谱密度" class="headerlink" title="功率信号的功率谱密度"></a>功率信号的功率谱密度</h3><h4 id="功率谱密度的定义"><a href="#功率谱密度的定义" class="headerlink" title="功率谱密度的定义"></a>功率谱密度的定义</h4><ul>
+<li>功率信号s(t)的功率谱密度定义为： $P(f) &#x3D; \displaystyle \lim_{T \to \infty} \frac{|S_T(f)|^2}{T}$</li>
+<li>其中，$S_T(f) &#x3D; \displaystyle \int_{-T&#x2F;2}^{T&#x2F;2} s(t) e^{-j 2\pi f t} dt$</li>
+<li>功率信号的Parseval： $P &#x3D; \displaystyle \lim_{T \to \infty} \frac{1}{T} \int_{-T&#x2F;2}^{T&#x2F;2} |s(t)|^2 dt &#x3D; \int_{-\infty}^{\infty} P(f) df$</li>
+<li>周期信号的Parseval： $P &#x3D; \displaystyle \sum_{n&#x3D;-\infty}^{\infty} |C_n|^2$</li>
+<li>其中，$C_n &#x3D; \displaystyle \frac{1}{T_0} S(f)|_{f&#x3D;n f_0}$ 为第n次谐波的频谱系数</li>
+<li>周期信号的功率谱密度： $P(f) &#x3D; \displaystyle \sum_{n&#x3D;-\infty}^{\infty} |C_n|^2 \delta(f - n f_0)$</li>
+</ul>
+<h2 id="确知信号的时域特征"><a href="#确知信号的时域特征" class="headerlink" title="确知信号的时域特征"></a>确知信号的时域特征</h2><h3 id="能量信号的自相关函数"><a href="#能量信号的自相关函数" class="headerlink" title="能量信号的自相关函数"></a>能量信号的自相关函数</h3><h4 id="自相关函数的定义"><a href="#自相关函数的定义" class="headerlink" title="自相关函数的定义"></a>自相关函数的定义</h4><ul>
+<li>$R(τ) &#x3D;  \int_{-\infty}^{\infty} s(t)s(t+τ) dt$</li>
+</ul>
+<h4 id="自相关函数的性质"><a href="#自相关函数的性质" class="headerlink" title="自相关函数的性质"></a>自相关函数的性质</h4><ul>
+<li>$R(0) &#x3D; E$，即自相关函数在τ&#x3D;0处的值等于信号的能量</li>
+<li>$R(τ) &#x3D; R(-τ)$，即自相关函数是偶函数</li>
+<li>$R(τ) &#x3D; \displaystyle \int_{-\infty}^{\infty} |S(f)|^2 e^{j 2\pi f τ} df$，即自相关函数的傅里叶变换为能量谱密度</li>
+</ul>
+<h3 id="功率信号的自相关函数"><a href="#功率信号的自相关函数" class="headerlink" title="功率信号的自相关函数"></a>功率信号的自相关函数</h3><h4 id="自相关函数的定义-1"><a href="#自相关函数的定义-1" class="headerlink" title="自相关函数的定义"></a>自相关函数的定义</h4><ul>
+<li>$R(τ) &#x3D; \displaystyle \lim_{T→∞} \frac{1}{T} \int_{-T&#x2F;2}^{T&#x2F;2} s(t)s(t+τ) dt$</li>
+<li>对于周期功率信号，有<br>$R(τ) &#x3D; \displaystyle \frac{1}{T_0} \int_{-T_0&#x2F;2}^{T_0&#x2F;2} s(t)s(t+τ) dt$</li>
+</ul>
+<h4 id="自相关函数的性质-1"><a href="#自相关函数的性质-1" class="headerlink" title="自相关函数的性质"></a>自相关函数的性质</h4><ul>
+<li>$R(0) &#x3D; P$，即自相关函数在τ&#x3D;0处的值等于信号的平均功率</li>
+<li>$R(τ) &#x3D; R(-τ)$，即自相关函数是偶函数</li>
+<li>$R(τ)&#x3D;\displaystyle \sum_{n&#x3D;-\infty}^{\infty} |C_n|^2 e^{j 2\pi n f_0 τ}$，即自相关函数的傅里叶变换为功率谱密度</li>
+</ul>
+<h3 id="能量信号的互相关函数"><a href="#能量信号的互相关函数" class="headerlink" title="能量信号的互相关函数"></a>能量信号的互相关函数</h3><h4 id="互相关函数的定义"><a href="#互相关函数的定义" class="headerlink" title="互相关函数的定义"></a>互相关函数的定义</h4><ul>
+<li>$R_{12}(τ) &#x3D; \displaystyle \int_{-\infty}^{\infty} s_1(t) s_2(t+τ) dt$</li>
+</ul>
+<h4 id="互相关函数的性质"><a href="#互相关函数的性质" class="headerlink" title="互相关函数的性质"></a>互相关函数的性质</h4><ul>
+<li>$R_{12}(τ)$与时间t无关，即互相关函数仅与时间差τ有关</li>
+<li>$R_{12}(τ) &#x3D; R_{21}(-τ)$，即互相关函数是反对称的</li>
+<li>$R_{12}(τ) &#x3D; \displaystyle \int_{-\infty}^{\infty} S_{12}(f) e^{j 2\pi f τ} df$，即互相关函数的傅里叶变换为互能量谱<blockquote>
+<p>互能量谱$S_{12}(f) &#x3D;  \overline {S_1(f)} * S_2(f)$</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="功率信号的互相关函数"><a href="#功率信号的互相关函数" class="headerlink" title="功率信号的互相关函数"></a>功率信号的互相关函数</h3><h4 id="互相关函数的定义-1"><a href="#互相关函数的定义-1" class="headerlink" title="互相关函数的定义"></a>互相关函数的定义</h4><ul>
+<li>$R_{12}(τ) &#x3D; \displaystyle \lim_{T→∞} \frac{1}{T} \int_{-T&#x2F;2}^{T&#x2F;2} s_1(t) s_2(t+τ) dt$</li>
+</ul>
+<h4 id="互相关函数的性质-1"><a href="#互相关函数的性质-1" class="headerlink" title="互相关函数的性质"></a>互相关函数的性质</h4><ul>
+<li>$R_{12}(τ)$与时间t无关，即互相关函数仅与时间差τ有关</li>
+<li>$R_{12}(τ) &#x3D; R_{21}(-τ)$，即互相关函数是反对称的</li>
+<li>若$s_1(t)$与$s_2(t)$为周期信号，则有$R_{12}(τ) &#x3D; \displaystyle \frac{1}{T_0} \int_{-T_0&#x2F;2}^{T_0&#x2F;2} s_1(t) s_2(t+τ) dt$</li>
+<li>$R_{12}(τ) &#x3D; \displaystyle \sum_{-\infty}^{\infty} C_{12}(f) e^{j 2\pi n f_0 τ} $，即互相关函数的傅里叶变换互功率谱<blockquote>
+<p>互功率谱：$C_{12} &#x3D; \overline{(C_n)_1}\cdot (C_n)_2$</p>
+</blockquote>
+</li>
+</ul>
+
     </div>
     
     
